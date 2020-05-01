@@ -1,3 +1,8 @@
+#!/bin/bash
+
+# Extract system information and feeds them to battery_life.py
+
+
 CYCLES=$(system_profiler SPPowerDataType | grep "Cycle Count" | awk '{print $3}')
 CAPACITY=$(system_profiler SPPowerDataType | grep "Full Charge Capacity" | awk '{print $5}')
 DESIGN_CAPACITY=$(ioreg -l -w0 | grep "\"DesignCapacity\" =" | awk '{print $5}')

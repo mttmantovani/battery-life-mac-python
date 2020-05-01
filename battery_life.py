@@ -8,6 +8,9 @@ today = date.today()
 max_cycles = 1000
 
 def battery_life(cycles):
+    """ Calculates expected day to reach 1000 cycles assuming `start` is the 
+        first day of use.
+    """
     final = start + timedelta(days=max_cycles/(cycles/(today - start).days))
     return final.strftime("%d %h %Y")
 
