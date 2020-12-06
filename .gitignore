@@ -1,2 +1,4 @@
 *.js
 *.csv
+
+.ipynb_checkpoints/
