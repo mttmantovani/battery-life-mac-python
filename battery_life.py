@@ -1,5 +1,5 @@
 from datetime import date, timedelta
-from sys import argv, stdout
+from sys import argv, stdout, exit
 
 import argparse
 
@@ -24,6 +24,11 @@ if __name__=='__main__':
     parser.add_argument('--capacity', type=str, help='Full battery capacity.')
     parser.add_argument('--design-capacity', type=str, 
                         help='Design battery capacity.')
+
+    if len(argv) < 2:
+        parser.print_help()
+        exit(1)
+        
     args = parser.parse_args()
 
     data = {'date': today.strftime("%d %h %Y"),
@@ -35,11 +40,11 @@ if __name__=='__main__':
     
     if args.output is not stdout:
         with open(args.output.name, 'a+') as f:
-            #f.write(f'{today.strftime("%d %h %Y")},{cycles},{final},{capacity},{design_capacity}\n')
             f.write(',\t\t\t'.join(data.values())+'\n')
     else:
-        # TODO: write nicely to stdout
-        pass
+        print(f''.join(f'{k:<20}' for k in data))
+        print(f'' .join(f'{v:<20}' for v in data.values()))
+        
 
 
 

@@ -1,3 +1,3 @@
 - [x] Pass rest of input from command line
-- [ ] Write nicely to stdout
+- [x] Write nicely to stdout
 - [ ] Improve output
